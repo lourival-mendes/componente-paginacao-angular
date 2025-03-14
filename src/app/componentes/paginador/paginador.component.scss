@@ -1,0 +1,31 @@
+.paginador {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagina-item {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagina-link {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.pagina-item.active .pagina-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagina-item.disabled .pagina-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}

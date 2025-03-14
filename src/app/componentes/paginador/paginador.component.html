@@ -1,0 +1,17 @@
+<nav aria-label="paginacao">
+  <ul class="paginador">
+    <li class="pagina-item" [class.disabled]="paginaAtual === 1">
+      <a class="pagina-link" (click)="chamaPaginaAnterior()" aria-label="Pagina anterior">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li *ngFor="let pagina of paginas" class="pagina-item" [class.active]="pagina === paginaAtual">
+      <a class="pagina-link" (click)="chamaPagina(pagina)">{{ pagina }}</a>
+    </li>
+    <li class="pagina-item" [class.disabled]="paginaAtual === totalPaginas">
+      <a class="pagina-link" (click)="chamaProximaPagina()" aria-label="Proxima pagina">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
