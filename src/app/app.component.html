@@ -1,6 +1,5 @@
 <app-paginador
-  [totalRegistros]="totalRegistros"
-  [registrosPorPagina]="registrosPorPagina"
-  [paginaAtual]="paginaAtual"
+  *ngIf="responsePessoa"
+  [responsePessoa]="responsePessoa"
   (mudaPagina)="mudaPagina($event)"
 ></app-paginador>

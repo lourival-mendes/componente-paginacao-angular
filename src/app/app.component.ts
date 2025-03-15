@@ -1,19 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RequestPessoa } from './model/requestPessoa';
+import { ResponsePessoa } from './model/responsePessoa';
+import { PessoaService } from './services/pessoa.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  totalRegistros: number = 100;
-  registrosPorPagina: number = 10;
-  paginaAtual: number = 1;
+export class AppComponent implements OnInit {
+  requestPessoa: RequestPessoa = new RequestPessoa();
+  responsePessoa: ResponsePessoa = new ResponsePessoa();
 
-  mudaPagina(pagina: number): void {
-    this.paginaAtual = pagina;
-    this.geraPagina();
+  constructor(private readonly pessoaService: PessoaService) {
+    this.requestPessoa.pagina = 1;
+    this.requestPessoa.tamanhoPagina = 5;
   }
 
-  geraPagina(): void {}
+  ngOnInit(): void {
+    this.mudaPagina(1);
+  }
+
+  mudaPagina(pagina: number): void {
+    this.requestPessoa.pagina = pagina;
+    this.pessoaService
+      .listarPessoasPaginado(this.requestPessoa)
+      .subscribe((responsePessoa) => {
+        this.responsePessoa = responsePessoa;
+      });
+  }
 }
