@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Profissão</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let pessoa of registros">
+      <th scope="row">{{ pessoa.nome }}</th>
+      <td>{{ pessoa.cidade }}</td>
+      <td>{{ pessoa.idade }}</td>
+      <td>{{ pessoa.profissao }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaginadorComponent } from './componentes/paginador/paginador.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TabelaComponent } from './componentes/tabela/tabela.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaginadorComponent
+    PaginadorComponent,
+    TabelaComponent
   ],
   imports: [
     BrowserModule,

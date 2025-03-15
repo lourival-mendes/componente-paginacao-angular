@@ -18,10 +18,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mudaPagina(1);
+    this.mudaPagina();
   }
 
-  mudaPagina(pagina: number): void {
+  mudaPagina(pagina: number = 1): void {
     this.requestPessoa.pagina = pagina;
     this.pessoaService
       .listarPessoasPaginado(this.requestPessoa)

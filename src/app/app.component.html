@@ -1,5 +1,38 @@
-<app-paginador
-  *ngIf="responsePessoa"
-  [responsePessoa]="responsePessoa"
-  (mudaPagina)="mudaPagina($event)"
-></app-paginador>
+<div class="container mt-3 mb-3">
+  <span class="fs-1">Registros de pessoas com paginação</span>
+</div>
+
+<div
+  class="d-flex justify-content-center mt-5 pt-5"
+  *ngIf="!responsePessoa.totalRegistros"
+>
+  <output class="spinner-border"></output>
+  <span class="visually-hidden">Carregando...</span>
+</div>
+
+<div class="container" *ngIf="responsePessoa.totalRegistros > 0">
+  <div class="row" style="min-height: 270px">
+    <div class="col col-12">
+      <app-tabela [registros]="responsePessoa.resultados"></app-tabela>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-12">
+      <app-paginador
+        [responsePessoa]="responsePessoa"
+        (mudaPagina)="mudaPagina($event)"
+      ></app-paginador>
+    </div>
+  </div>
+</div>
+
+<div
+  class="container"
+  *ngIf="responsePessoa.totalRegistros && responsePessoa.totalRegistros == 0"
+>
+  <div class="row">
+    <div class="col col-12">
+      <div class="alert alert-light fs-5">Nenhum registro encontrado.</div>
+    </div>
+  </div>
+</div>
